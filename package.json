@@ -1,0 +1,49 @@
+{
+  "name": "webpack-ms",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yimin087/webpack.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yimin087/webpack/issues"
+  },
+  "homepage": "https://github.com/yimin087/webpack#readme",
+  "devDependencies": {
+    "@babel/core": "^7.5.0",
+    "@babel/cli": "^7.5.0",
+    "@babel/preset-env": "^7.5.0",
+    "autoprefixer": "^9.6.1",
+    "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^5.0.3",
+    "css-loader": "^3.0.0",
+    "file-loader": "^4.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "less": "^3.9.0",
+    "less-loader": "^5.0.0",
+    "node-sass": "^4.12.0",
+    "precss": "^4.0.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "url-loader": "^2.0.1",
+    "webpack": "^4.35.2",
+    "webpack-cli": "^3.3.5",
+    "webpack-dev-server": "^3.7.2",
+    "postcss-loader": "^3.0.0"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.4.4",
+    "html-withimg-loader": "^0.1.16",
+    "jquery": "^3.4.1"
+  }
+}
