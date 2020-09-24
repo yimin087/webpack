@@ -1,11 +1,13 @@
-const presets = [
-	[
-		'@babel/env',
-		{
-			targets: '> 0.25%, not dead',
-			useBuiltIns: 'usage'
-		}
-	]
-]
-
-module.exports = {presets}
+module.exports = {
+  "presets": [[
+    "@babel/preset-env",
+    {
+      "targets": {
+        "browsers": ["> .5%", "last 2 versions"]
+      },
+      "corejs": 2,
+      "useBuiltIns": "usage"
+    }
+  ], "@babel/preset-react"],
+  "plugins": ["react-hot-loader/babel"]
+}
