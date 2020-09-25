@@ -3,8 +3,14 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const PurifyCSS = require('purifycss-webpack')
+const glob = require('glob-all')
+const webpack = require('webpack')
 
-module.exports = {
+const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
+const smp = new SpeedMeasurePlugin();
+
+const proConfig = {
   mode: 'production',
   module: {
     rules: [
@@ -25,6 +31,14 @@ module.exports = {
         ]
       }
     ]
+  },
+  // externals : {
+  //   jquery: 'jQuery'
+  // },
+  optimization: {
+    splitChunks: {
+      chunks: 'all'
+    }
   },
   plugins: [
     new CleanWebpackPlugin(),
@@ -47,6 +61,21 @@ module.exports = {
         preset: ['default', { discardComments: { removeAll: true } }],
       },
       canPrint: true
+    }),
+    // 清除⽆⽤ css
+    new PurifyCSS({
+        paths: glob.sync([
+        path.resolve(__dirname, '../src/*.html'),
+        path.resolve(__dirname, '../src/*.js')
+      ])
+    }),
+    new webpack.DefinePlugin({
+      'SERVICE_URL': JSON.stringify('https://dev.example.com')
+    }),
+    new webpack.ProvidePlugin({
+      $: 'jquery'
     })
   ]
 }
+
+module.exports = smp.wrap(proConfig)

@@ -1,7 +1,10 @@
 import React, { Component, useState } from 'react';
 import { render } from 'react-dom';
-import Style from './index.scss'
+import { join } from 'lodash';
+import './index.scss'
 
+console.log(join(['a', 'b', 'c'], '****'));
+console.log('SERVICE_URL', SERVICE_URL);
 function Page1 () {
   const [ counter, setCounter ] = useState(1)
   return (
@@ -34,7 +37,7 @@ class Page2 extends Component {
 
 function App () {
   return (
-    <div className={Style.container}>
+    <div>
       <Page1 />
       <Page2 />
     </div>
